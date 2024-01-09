@@ -14,7 +14,7 @@ var items = []
 
 function addItems() {
     if (inpt.value === ""){
-        alert('Space cannot be empty')
+        show.innerHTML='<h3 class="text-center" style="color:grey;">Space cannot be empty</h3>'
     }else{
         items.push(inpt.value)
         document.getElementById("inpt").value =""

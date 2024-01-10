@@ -24,3 +24,28 @@ function addItems() {
         }
     }
 }
+function addItemstoFirst() {
+    if (inpt.value === "") {
+        show.innerHTML='<h3 class="text-center" style="color:grey;">Space cannot be empty</h3>'
+    }else{
+        items.unshift(inpt.value)
+        document.getElementById("inpt").value =""
+        show.innerHTML = ""
+        for (x=0; x<items.length; x++) {
+            show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
+        }
+    }
+}
+
+function removeFirstItems() {
+    if (inpt.value === "") {
+        show.innerHTML='<h3 class="text-center" style="color:grey;">Space cannot be empty</h3>'
+    }else{
+        items.shift(inpt.value)
+        document.getElementById("inpt").value =""
+        show.innerHTML = ""
+        for (x=0; x<items.length; x++) {
+            show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
+        }
+    }
+}

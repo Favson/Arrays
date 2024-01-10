@@ -14,38 +14,52 @@ var items = []
 
 function addItems() {
     if (inpt.value === ""){
-        show.innerHTML='<h3 class="text-center" style="color:grey;">Space cannot be empty</h3>'
+        err.style.display= "block"
+        noItems.style.display = 'none'
     }else{
+        err.style.display= "none"
         items.push(inpt.value)
         document.getElementById("inpt").value =""
-        show.innerHTML = ""
-        for (x=0; x<items.length; x++) {
-            show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
-        }
+        carts()
     }
 }
+
 function addItemstoFirst() {
-    if (inpt.value === "") {
-        show.innerHTML='<h3 class="text-center" style="color:grey;">Space cannot be empty</h3>'
-    }else{
+    if (isNaN(inpt.value)) {
         items.unshift(inpt.value)
         document.getElementById("inpt").value =""
-        show.innerHTML = ""
-        for (x=0; x<items.length; x++) {
-            show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
-        }
+        carts()
+    }else{
+        err.style.display = "block"
+        noItems.style.display = "none"
     }
 }
 
 function removeFirstItems() {
-    if (inpt.value === "") {
-        show.innerHTML='<h3 class="text-center" style="color:grey;">Space cannot be empty</h3>'
-    }else{
-        items.shift(inpt.value)
+        items.shift()
         document.getElementById("inpt").value =""
-        show.innerHTML = ""
-        for (x=0; x<items.length; x++) {
-            show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
-        }
+        carts()
+}
+
+function deletelastItems() {
+    items.pop()
+    document.getElementById("inpt").value =""
+    carts()
+}
+
+var inputval =Number(prompt("Input The Number you want to delete"))
+function deleteAnyItems() {
+    
+}
+
+
+function deleteAllItems(){
+    show.innerHTML = ""
+}
+
+function carts(){
+    show.innerHTML = ""
+    for (x=0; x<items.length; x++) {
+        show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
     }
 }

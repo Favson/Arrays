@@ -18,7 +18,9 @@ function addItems() {
     }else{
         items.push(inpt.value)
         document.getElementById("inpt").value =""
-        console.log(items)
-        show.innerHTML += items
+        show.innerHTML = ""
+        for (x=0; x<items.length; x++) {
+            show.innerHTML +=`<p>${i+1}. ${items[i]} </p>` 
+        }
     }
 }

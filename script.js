@@ -22,6 +22,8 @@ function addItems() {
         document.getElementById("inpt").value =""
         carts()
     }
+    inputForEdit.style.display = "None"
+
 }
 
 function addItemstoFirst() {
@@ -63,10 +65,9 @@ function UpdateValue() {
     if (inpToedit == "" && inpToReplace == ""){
         display.innerHTML ="Input Values"
     }else{
-        items.splice(inputForEdit-1, 1, inpToReplace)
+        items.splice(inpToedit-1, 1, inpToReplace)
         carts()
     }
-    inputForEdit.style.display= "none"
 }
 
 function deleteAllItems(){
@@ -74,7 +75,7 @@ function deleteAllItems(){
 }
 
 function carts(){
-    show.innerHTML = ""
+    show.innerHTML = "<table></table>"
     for (x=0; x<items.length; x++) {
         show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
     }

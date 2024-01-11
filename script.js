@@ -51,16 +51,22 @@ function deleteAnyItems(){
     var ask = Number(prompt("Input the index of the of the"))
     items.splice(ask-1, 1)
     carts()
-
 }
 
 function editItems() {
-    inputForEdit.style.display="none"?"Block":"none";
-    var inpToedit = Number(document.getElementById("inputToDelete").value)
-    var inpToReplace = Number(document.getElementById("inputToReplace"))
-
-    items.splice(inputForEdit, 1, inpToReplace)
-
+    inputForEdit.style.display=inputForEdit.style.display === "none" ? "block" : "none";
+    UpdateValue()
+}
+function UpdateValue() {
+    let inpToedit = Number(document.getElementById("inputToDelete").value)
+    let inpToReplace =(document.getElementById("inputToReplace").value)
+    if (inpToedit == "" && inpToReplace == ""){
+        display.innerHTML ="Input Values"
+    }else{
+        items.splice(inputForEdit-1, 1, inpToReplace)
+        carts()
+    }
+    inputForEdit.style.display= "none"
 }
 
 function deleteAllItems(){

@@ -47,11 +47,21 @@ function deletelastItems() {
     carts()
 }
 
-var inputval =Number(prompt("Input The Number you want to delete"))
-function deleteAnyItems() {
-    
+function deleteAnyItems(){
+    var ask = Number(prompt("Input the index of the of the"))
+    items.splice(ask-1, 1)
+    carts()
+
 }
 
+function editItems() {
+    inputForEdit.style.display="none"?"Block":"none";
+    var inpToedit = Number(document.getElementById("inputToDelete").value)
+    var inpToReplace = Number(document.getElementById("inputToReplace"))
+
+    items.splice(inputForEdit, 1, inpToReplace)
+
+}
 
 function deleteAllItems(){
     show.innerHTML = ""
@@ -63,3 +73,5 @@ function carts(){
         show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
     }
 }
+
+

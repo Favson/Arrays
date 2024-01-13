@@ -11,6 +11,9 @@
 // console.log(cart);
 
 var items = []
+const currentDateInGMT = new Date().toLocaleString('en-US', { timeZone: 'GMT' });
+showdate(currentDateInGMT);
+
 
 function addItems() {
     if (inpt.value === ""){
@@ -56,8 +59,10 @@ function deleteAnyItems(){
 }
 
 function editItems() {
-    inputForEdit.style.display=inputForEdit.style.display === "none" ? "block" : "none";
+    modar.style.display=modar.style.display === "none" ? "block" : "none";
     UpdateValue()
+    modar.style.display= "none"
+    
 }
 function UpdateValue() {
     let inpToedit = Number(document.getElementById("inputToDelete").value)
@@ -68,6 +73,9 @@ function UpdateValue() {
         items.splice(inpToedit-1, 1, inpToReplace)
         carts()
     }
+}
+function closeButton(){
+    modar.style.display= "none"
 }
 
 function deleteAllItems(){

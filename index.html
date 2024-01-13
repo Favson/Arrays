@@ -9,7 +9,10 @@
 </head>
 <body class="">
     <div class="container-fluid mx-auto col-lg-7 col-10 shadow-sm mt-lg-5 mt-2 p-3">
-        <h1 class="text-center text-decoration-underline my-3">Mini Mart</h1>
+        <p id="dateshow"></p>
+    </div>
+    <div class="container-fluid mx-auto col-lg-7 col-10 shadow-sm mt-lg-5 mt-2 p-3">
+        <h1 class="text-center text-decoration-underline my-3">Mini Mart</h1>        
             <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items" id="inpt">
             <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="addItems()">Submit</button>
     </div>
@@ -30,12 +33,24 @@
         <button class="btn btn-outline-primary btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
     </div>
 
-    <div class="container-fluid mx-auto col-lg-7 col-10 shadow-sm mt-lg-5 mt-2 p-3" style="display: none;" id="inputForEdit">
+    <div class="modal" tabindex="-1" style="display: none;" id="modar">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Input The values Below</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeButton()"></button>
+            </div>
+            <div class="modal-body">
             <input type="number" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Number to edit" id="inputToDelete">
-            <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items" id="inputToReplace">
-            <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="UpdateValue()">Update</button>
-            <br><br>
-    </div>
+            <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items" id="inputToReplace">  
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeButton()">Close</button>
+              <button type="button" class="btn btn-primary" onclick="UpdateValue()">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <script src="script.js"></script>
 </body>

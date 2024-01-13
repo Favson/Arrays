@@ -34,13 +34,13 @@ function addItems() {
 }
 
 function addItemstoFirst() {
-    if (isNaN(inpt.value)) {
-        items.unshift(inpt.value)
+    var value =prompt("Input The Item to add to the begining")
+    if (isNaN(value)) {
+        items.unshift(value)
         document.getElementById("inpt").value =""
         carts()
     }else{
-        err.style.display = "block"
-        noItems.style.display = "none"
+
     }
 }
 
@@ -63,12 +63,11 @@ function deleteAnyItems(){
 }
 
 function editItems() {
-    modar.style.display=modar.style.display === "none" ? "block" : "none";
     UpdateValue()
-    modar.style.display= "none"
     
 }
 function UpdateValue() {
+    modar.style.display=modar.style.display === "none" ? "block" : "none";
     let inpToedit = Number(document.getElementById("inputToDelete").value)
     let inpToReplace =(document.getElementById("inputToReplace").value)
     if (inpToedit == "" && inpToReplace == ""){

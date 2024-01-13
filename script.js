@@ -11,8 +11,12 @@
 // console.log(cart);
 
 var items = []
-const currentDateInGMT = new Date().toLocaleString('en-US', { timeZone: 'GMT' });
-showdate(currentDateInGMT);
+function updateGMTTime() {
+  const timeDateInNigeria = new Date().toLocaleString('en-NG', {timeZone: 'Africa/Lagos'});  
+  dateshow.innerHTML=(timeDateInNigeria);
+}
+setInterval(updateGMTTime, 1000);
+
 
 
 function addItems() {

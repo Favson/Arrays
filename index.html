@@ -26,9 +26,9 @@
         <button class="btn btn-outline-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button>
         <button class="btn btn-outline-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button>
         <button class="btn btn-outline-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button>
-        <button class="btn btn-outline-primary btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button>
-        <button class="btn btn-outline-primary btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button>
-        <button class="btn btn-outline-primary btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
+        <button class="btn btn-outline-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button>
+        <button class="btn btn-outline-dark btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button>
+        <button class="btn btn-outline-info btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
     </div>
 
     <div class="modal" tabindex="-1" style="display: none;" id="modar">
@@ -39,8 +39,11 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeButton()"></button>
             </div>
             <div class="modal-body">
-            <input type="number" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Number to edit" id="inputToDelete">
-            <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items" id="inputToReplace">  
+                <div class="mb-2 alert alert-success p-1" style="display: none;" id="successalert">Deleted Succefully</div>
+                <input type="number" class="form-control form-control-sm form-float shadow-none my-2"
+                    placeholder="Enter Number to edit" id="inputToDelete">
+                <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items"
+                    id="inputToReplace">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeButton()">Close</button>

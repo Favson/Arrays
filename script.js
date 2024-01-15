@@ -58,13 +58,16 @@ function deletelastItems() {
 
 function deleteAnyItems(){
     var ask = Number(prompt("Input the index of the of the"))
-    items.splice(ask-1, 1)
-    carts()
+    if(items.length >0) {
+        items.splice(ask-1, 1)
+        carts()
+    }else{
+        console.log("Nothing");
+    }
 }
 
 function editItems() {
     UpdateValue()
-    
 }
 function UpdateValue() {
     modar.style.display=modar.style.display === "none" ? "block" : "none";
@@ -76,17 +79,21 @@ function UpdateValue() {
         items.splice(inpToedit-1, 1, inpToReplace)
         carts()
     }
+    (document.getElementById("inputToDelete").value)=""
+    (document.getElementById("inputToReplace").value)=""
 }
 function closeButton(){
     modar.style.display= "none"
 }
 
 function deleteAllItems(){
-    show.innerHTML = ""
+    items.splice(0, items.length)
+    carts()
+    // show.innerHTML = ""
 }
 
 function carts(){
-    show.innerHTML = "<table></table>"
+    show.innerHTML = ""
     for (x=0; x<items.length; x++) {
         show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
     }

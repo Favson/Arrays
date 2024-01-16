@@ -94,8 +94,10 @@ function deleteAllItems(){
 
 function carts(){
     show.innerHTML = ""
+    numIt.innerHTML = ""
     for (x=0; x<items.length; x++) {
-        show.innerHTML +=`<p>${x+1}. ${items[x]} </p>` 
+        show.innerHTML +=`<p> ${items[x]} </p>` 
+        numIt.innerHTML += `<p>${x+1}.</p>`
     }
 }
 

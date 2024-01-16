@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Favson Mini Mart</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/Logo mine.PNG" type="image/x-icon">
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/bootstrap-5.3.2-dist/css/bootstrap.css">
 </head>
 <body class="">
@@ -16,9 +17,9 @@
         <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="addItems()">Submit</button>
     </div>
 
-    <div class="container-fluid mx-auto col-lg-7 col-10 shadow-sm p-3" >
-        <div id="show">
-            <table class="table" style="background-color: grey;">
+    <div class="" >
+        
+            <table class="table container-fluid mx-auto w-50 my-3 shadow-sm p-3" >
                 <thead>
                   <tr>
                     <th scope="col">S/N</th>
@@ -26,13 +27,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        
-                    </tr>
+                    
+                        <td id="numIt"></td>
+                        <td id="show"> </td>
+                    
                 </tbody>
             </table>
-        </div>
-        <div class="text-center alert alert-danger form-floating" style="background-color:grey; display:none" id="err">Space cannot be empty</div>
+        
+        <div class="text-center alert alert-danger form-floating w-50 mx-auto" style=" display:none" id="err">Space cannot be empty</div>
     </div>
 
     <div class="text-center">

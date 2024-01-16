@@ -1,0 +1,1 @@
+Crude = create read update delete edit

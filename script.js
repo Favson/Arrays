@@ -28,6 +28,7 @@ function addItems() {
         items.push(inpt.value)
         document.getElementById("inpt").value =""
         carts()
+        countings.innerHTML= items.length
     }
     inputForEdit.style.display = "None"
 
@@ -94,10 +95,15 @@ function deleteAllItems(){
 
 function carts(){
     show.innerHTML = ""
-    numIt.innerHTML = ""
     for (x=0; x<items.length; x++) {
-        show.innerHTML +=`<p> ${items[x]} </p>` 
-        numIt.innerHTML += `<p>${x+1}.</p>`
+        show.innerHTML +=`
+            <tr>
+                <td><p>${x+1}.</p></td>
+                <td><p>${items[x]}</p></td>
+                <button onclick="Delete" class="btn btn-danger">Delete</button>
+                <button onclick="edit" class="btn btn-warning">Edit</button>
+            </tr>
+        `
     }
 }
 

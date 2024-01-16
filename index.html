@@ -17,33 +17,30 @@
         <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="addItems()">Submit</button>
     </div>
 
-    <div class="" >
-        
-            <table class="table container-fluid mx-auto w-50 my-3 shadow-sm p-3" >
-                <thead>
-                  <tr>
-                    <th scope="col">S/N</th>
-                    <th scope="col">Items</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    
-                        <td id="numIt"></td>
-                        <td id="show"> </td>
-                    
-                </tbody>
-            </table>
-        
-        <div class="text-center alert alert-danger form-floating w-50 mx-auto" style=" display:none" id="err">Space cannot be empty</div>
+    <div class="p-lg-5 p-4 col-lg-7 mx-auto">
+      <table class="table table-responsive container-fluid mx-auto w-100 my-3 shadow-sm p-3">
+        <thead>
+          <tr>
+            <th scope="col">S/N</th>
+            <th scope="col">Products</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="show">
+          <td class="text-center">No Items Yet</td>
+        </tbody>
+      </table>
+      <div class="fs-5">You have<span id="countings">  0  </span>items</div>
+      <div class="text-center alert alert-danger form-floating w-50 mx-auto" style=" display:none" id="err">Space cannot be empty</div>
     </div>
 
     <div class="text-center">
-        <button class="btn btn-outline-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button>
-        <button class="btn btn-outline-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button>
-        <button class="btn btn-outline-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button>
-        <button class="btn btn-outline-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button>
-        <button class="btn btn-outline-dark btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button>
-        <button class="btn btn-outline-info btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
+        <button class="btn btn-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button>
+        <button class="btn btn-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button>
+        <button class="btn btn-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button>
+        <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button>
+        <button class="btn btn-dark btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button>
+        <button class="btn btn-info btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
     </div>
 
     <div class="modal" tabindex="-1" style="display: none;" id="modar">

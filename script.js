@@ -89,6 +89,7 @@ function closeButton(){
 function deleteAllItems(){
     items.splice(0, items.length)
     carts()
+    // items.splice(items) 
     // show.innerHTML = ""
 }
 
@@ -105,10 +106,11 @@ function carts(){
         // </thead>
         show.innerHTML +=`
 
-            <tr style="style="background-color:lightgrey"">
-                <td><p>${x+1}.</p></td>
-                <td><p>${items[x]}</p></td>
-                <td><button onclick="Delete(${x})" class="btn btn-danger">Delete</button> <button onclick="edit(${x})" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fw-5"></i>
+            <tr style="background-color: grey;">
+                <td style="background-color: lightgray;"><p>${x+1}.</p></td>
+                <td style="background-color: lightgray;"><p>${items[x]}</p></td>
+                <td style="background-color: lightgray;"></td>
+                <td style="background-color: lightgray;"><button onclick="Delete(${x})" class="btn btn-danger">Delete</button> <button onclick="edit(${x})" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fw-5"></i>
                 </button></td>
             </tr>
         `

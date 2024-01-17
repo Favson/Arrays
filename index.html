@@ -14,6 +14,7 @@
       td{
         border: 2px solid ;
       }
+      
   </style>
 <body class="">
   <div class="container-fluid mx-auto col-lg-7 col-10 shadow-sm mt-lg-5 mt-2 p-3">
@@ -21,19 +22,22 @@
     <h1 class="text-center text-decoration-underline my-3">Mini Mart</h1>
     <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items"
       id="inpt" autofocus>
+    <input type="number" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter N Price"
+      id="inpt" autofocus>
     <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="addItems()">Submit</button>
   </div>
 
   <div class="text-center alert alert-danger form-floating w-50 mx-auto" style=" display:none" id="err">Space cannot be
-    empty</div>
+    empty
+  </div>
   <div class="table-responsive p-lg-5 p-4 col-lg-7 mx-auto ">
-    <table class="table container-fluid mx-auto w-100 my-3 shadow-sm p-3" style="border: 2px solid;">
+    <table class="table text-center table-bordered container-fluid mx-auto w-100 my-3 shadow-sm p-3" style="border: 2px solid;">
       <thead>
         <tr>
-          <th scope="col">S/N</th>
-          <th scope="col">Products</th>
-          <th scope="col">Price</th>
-          <th scope="col">Actions</th>
+          <th scope="col" style="background-color:grey;">S/N</th>
+          <th scope="col" style="background-color:grey;">Products</th>
+          <th scope="col" style="background-color:grey;">Price</th>
+          <th scope="col" style="background-color:grey;">Actions</th>
         </tr>
       </thead>
       <tbody id="show">
@@ -48,7 +52,7 @@
     <!-- <button class="btn btn-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button> -->
     <!-- <button class="btn btn-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button> -->
     <!-- <button class="btn btn-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button> -->
-    <!-- <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button> -->
+    <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button>
     <!-- <button class="btn btn-dark btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button> -->
   <!-- </div> -->
 

@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parameterized Function</title>
+    <style>
+        #editDiv{
+            width: 100%;
+            height: 100vh;
+            padding-top: 3%;
+            background-color: rgba(0, 0, 0, 0.315);
+            position: absolute;
+            top: 0;
+            
+          }
+    </style>
 </head>
 <body>
-    <button onclick="sayName('Kesh', 40)">Kesh</button>
+    <!-- <button onclick="sayName('Kesh', 40)">Kesh</button>
     <button onclick="sayName('Favour', 20)">Favour</button>
     <button onclick="sayName('Florish', 99)">Florish</button>
     <button onclick="sayName('Guru', 31)">Guru</button>
@@ -15,6 +26,19 @@
         function sayName(name, age){
             console.log(`My name is ${name} and my age is ${age}`)
         }
-    </script>
+    </script> -->
+    <div id="editDiv">
+        <div class="container-fliud p-4 my-2 mx-auto col-10 col-lg-5 shadow-sm editContainer">
+          <h1 class="text-center mb-3">Edit Cart</h1>
+          <p>Enter the number of your item and new value to edit your cart!</p>
+          <div id="emptyErr2"><i>Number does not exit in your cart!</i></div>
+          <div id="emptyErr"><i>Spaces can't be empty!</i></div>
+          <input type="text" class="form-control mb-3 shadow-none" placeholder="Enter number to edit" id="numberToDelete" />
+          <input type="text" class="form-control shadow-none" placeholder="Enter new value" id="newValue" />
+          <div class="editButton mt-4" id="editButton">
+            <button id="closeButton" class="btn btn-danger" onclick="closeEdit()">Close</button><button class="btn btn-primary" id="saveButton"onclick="edit()">Save</button>
+          </div>
+        </div>
+      </div>
 </body>
 </html>

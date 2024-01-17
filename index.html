@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favson Mini Mart</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="images/Logo mine.PNG" type="image/x-icon">
-    <link rel="stylesheet" href="bootstrap-5.3.2-dist/bootstrap-5.3.2-dist/css/bootstrap.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favson Mini Mart</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="images/Logo mine.PNG" type="image/x-icon">
+  <link rel="stylesheet" href="bootstrap-5.3.2-dist/bootstrap-5.3.2-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.css">
+  <link rel="stylesheet" href="fontawesome-free-6.4.2-web/js/all.js">
 </head>
+  <style>
+      td{
+        border: 2px solid ;
+      }
+  </style>
 <body class="">
-    <div class="container-fluid mx-auto col-lg-7 col-10 shadow-sm mt-lg-5 mt-2 p-3">
-        <p id="dateshow"></p>
-        <h1 class="text-center text-decoration-underline my-3">Mini Mart</h1>
-        <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items"
-            id="inpt">
-        <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="addItems()">Submit</button>
-    </div>
+  <div class="container-fluid mx-auto col-lg-7 col-10 shadow-sm mt-lg-5 mt-2 p-3">
+    <p id="dateshow"></p>
+    <h1 class="text-center text-decoration-underline my-3">Mini Mart</h1>
+    <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items"
+      id="inpt" autofocus>
+    <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="addItems()">Submit</button>
+  </div>
 
-    <div class="p-lg-5 p-4 col-lg-7 mx-auto">
-      <table class="table table-responsive container-fluid mx-auto w-100 my-3 shadow-sm p-3">
-        <thead>
-          <tr>
-            <th scope="col">S/N</th>
-            <th scope="col">Products</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody id="show">
-          <td class="text-center">No Items Yet</td>
-        </tbody>
-      </table>
-      <div class="fs-5">You have<span id="countings">  0  </span>items</div>
-      <div class="text-center alert alert-danger form-floating w-50 mx-auto" style=" display:none" id="err">Space cannot be empty</div>
-    </div>
+  <div class="text-center alert alert-danger form-floating w-50 mx-auto" style=" display:none" id="err">Space cannot be
+    empty</div>
+  <div class="table-responsive p-lg-5 p-4 col-lg-7 mx-auto ">
+    <table class="table container-fluid mx-auto w-100 my-3 shadow-sm p-3" style="border: 2px solid;">
+      <thead>
+        <tr>
+          <th scope="col">S/N</th>
+          <th scope="col">Products</th>
+          <th scope="col">Price</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="show">
+        <td class="text-center" colspan="4">No Items Yet </td>
+      </tbody>
+    </table>
+    <b class="">You have<span id="countings" class="p-1"> 0 </span>items</b>
+    <button class="btn btn-info btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
+  </div>
 
-    <div class="text-center">
-        <button class="btn btn-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button>
-        <button class="btn btn-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button>
-        <button class="btn btn-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button>
-        <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button>
-        <button class="btn btn-dark btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button>
-        <button class="btn btn-info btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
-    </div>
+  <!-- <div class="text-center"> -->
+    <!-- <button class="btn btn-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button> -->
+    <!-- <button class="btn btn-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button> -->
+    <!-- <button class="btn btn-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button> -->
+    <!-- <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button> -->
+    <!-- <button class="btn btn-dark btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button> -->
+  <!-- </div> -->
 
-    <div class="modal" tabindex="-1" style="display: none;" id="modar">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Input The values Below</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeButton()"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-2 alert alert-success p-1" style="display: none;" id="successalert">Deleted Succefully</div>
-                <input type="number" class="form-control form-control-sm form-float shadow-none my-2"
-                    placeholder="Enter Number to edit" id="inputToDelete">
-                <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items"
-                    id="inputToReplace">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeButton()">Close</button>
-              <button type="button" class="btn btn-primary" onclick="UpdateValue()">Save changes</button>
-            </div>
-          </div>
+  <div class="modal" tabindex="-1" style="display: none;" id="modar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Input The values Below</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+            onclick="closeButton()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-2 alert alert-success p-1" style="display: none;" id="successalert">Deleted Succefully</div>
+          <input type="number" class="form-control form-control-sm form-float shadow-none my-2"
+            placeholder="Enter Number to edit" id="inputToDelete">
+          <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items"
+            id="inputToReplace">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeButton()">Close</button>
+          <button type="button" class="btn btn-primary" onclick="UpdateValue()">Save changes</button>
         </div>
       </div>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>

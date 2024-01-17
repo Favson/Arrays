@@ -28,9 +28,8 @@ function addItems() {
         items.push(inpt.value)
         document.getElementById("inpt").value =""
         carts()
-        countings.innerHTML= items.length
     }
-    inputForEdit.style.display = "None"
+    // inputForEdit.style.display = "None"
 
 }
 
@@ -94,17 +93,35 @@ function deleteAllItems(){
 }
 
 function carts(){
+    countings.innerHTML= items.length
     show.innerHTML = ""
     for (x=0; x<items.length; x++) {
+        // <thead style="background-color:darkgrey">
+        //     <tr>
+        //         <th scope="col">S/N</th>
+        //         <th scope="col">Products</th>
+        //         <th scope="col">Actions</th>
+        //     </tr>
+        // </thead>
         show.innerHTML +=`
-            <tr>
+
+            <tr style="style="background-color:lightgrey"">
                 <td><p>${x+1}.</p></td>
                 <td><p>${items[x]}</p></td>
-                <button onclick="Delete" class="btn btn-danger">Delete</button>
-                <button onclick="edit" class="btn btn-warning">Edit</button>
+                <td><button onclick="Delete(${x})" class="btn btn-danger">Delete</button> <button onclick="edit(${x})" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fw-5"></i>
+                </button></td>
             </tr>
         `
     }
 }
 
+function Delete(index){
+    items.splice(index, 1);
+    carts()
+}
 
+function edit(editedItems){
+    var askings= prompt("Input What The new item");
+        items.splice(editedItems,1,askings)
+        carts()
+}

@@ -23,14 +23,15 @@
     <input type="text" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter Items"
       id="inpt" autofocus>
     <input type="number" class="form-control form-control-sm form-float shadow-none my-2" placeholder="Enter N Price"
-      id="inpt" autofocus>
+      id="price">
     <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="addItems()">Submit</button>
   </div>
 
   <div class="text-center alert alert-danger form-floating w-50 mx-auto" style=" display:none" id="err">Space cannot be
     empty
   </div>
-  <div class="table-responsive p-lg-5 p-4 col-lg-7 mx-auto ">
+  <div class="text-center mx-auto py-2 my-3 col-lg-7 col-10" style="background-color: grey;" id="noItems">No Items Yet </div>
+  <div class="table-responsive p-lg-5 p-3 col-lg-7 col-10 mx-auto" style="display: none;" id="myTable">
     <table class="table text-center table-bordered container-fluid mx-auto w-100 my-3 shadow-sm p-3" style="border: 2px solid;">
       <thead>
         <tr>
@@ -41,10 +42,9 @@
         </tr>
       </thead>
       <tbody id="show">
-        <td class="text-center" colspan="4">No Items Yet </td>
       </tbody>
     </table>
-    <b class="">You have<span id="countings" class="p-1"> 0 </span>items</b>
+    <b class="">You have<span id="countings" class="p-1"> 0 </span>items</b>xx
     <button class="btn btn-info btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
   </div>
 
@@ -52,7 +52,7 @@
     <!-- <button class="btn btn-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button> -->
     <!-- <button class="btn btn-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button> -->
     <!-- <button class="btn btn-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button> -->
-    <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button>
+    <!-- <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button> -->
     <!-- <button class="btn btn-dark btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button> -->
   <!-- </div> -->
 

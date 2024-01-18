@@ -11,6 +11,7 @@
 // console.log(cart);
 
 var items = []
+var prices=[]
 function updateGMTTime() {
   const timeDateInNigeria = new Date().toLocaleString('en-NG', {timeZone: 'Africa/Lagos'});  
   dateshow.innerHTML=(timeDateInNigeria);
@@ -20,13 +21,17 @@ setInterval(updateGMTTime, 1000);
 
 
 function addItems() {
-    if (inpt.value === ""){
-        err.style.display= "block"
-        noItems.style.display = 'none'
+    if (inpt.value === "" || price.value===""){
+        err.style.display= "block";
+        noItems.style.display = 'none';
     }else{
-        err.style.display= "none"
+        err.style.display= "none";
+        noItems.style.display = "none";
+        myTable.style.display = "block";
         items.push(inpt.value)
+        prices.push(price.value)
         document.getElementById("inpt").value =""
+        document.getElementById("price").value=""
         carts()
     }
     // inputForEdit.style.display = "None"
@@ -37,6 +42,7 @@ function addItemstoFirst() {
     var value =prompt("Input The Item to add to the begining")
     if (isNaN(value)) {
         items.unshift(value)
+        // prices.unshift()
         document.getElementById("inpt").value =""
         carts()
     }else{
@@ -46,20 +52,24 @@ function addItemstoFirst() {
 
 function removeFirstItems() {
         items.shift()
+        prices.shift()
         document.getElementById("inpt").value =""
+        document.getElementById("price").value=""
         carts()
 }
 
 function deletelastItems() {
     items.pop()
+    prices.pop()
     document.getElementById("inpt").value =""
     carts()
 }
 
 function deleteAnyItems(){
     var ask = Number(prompt("Input the index of the of the"))
-    if(items.length >0) {
+    if(items.length >0 || prices.length >0) {
         items.splice(ask-1, 1)
+        prices.splice(ask-1,1)
         carts()
     }else{
         console.log("Nothing");
@@ -96,7 +106,7 @@ function deleteAllItems(){
 function carts(){
     countings.innerHTML= items.length
     show.innerHTML = ""
-    for (x=0; x<items.length; x++) {
+    for (x=0; x<items.length && x<prices.length; x++) {
         // <thead style="background-color:darkgrey">
         //     <tr>
         //         <th scope="col">S/N</th>
@@ -109,7 +119,7 @@ function carts(){
             <tr style="background-color: grey;">
                 <td style="background-color: lightgray;"><p>${x+1}.</p></td>
                 <td style="background-color: lightgray;"><p>${items[x]}</p></td>
-                <td style="background-color: lightgray;"></td>
+                <td style="background-color: lightgray;"><p>#${prices[x]}</p></td>
                 <td style="background-color: lightgray;"><button onclick="Delete(${x})" class="btn btn-danger">Delete</button> <button onclick="edit(${x})" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fw-5"></i>
                 </button></td>
             </tr>
@@ -118,12 +128,17 @@ function carts(){
 }
 
 function Delete(index){
+    // noItems.style.display ="block"
+    // myTable.style.display = "none"
     items.splice(index, 1);
+    prices.splice(index,1);
     carts()
 }
 
 function edit(editedItems){
     var askings= prompt("Input What The new item");
+    var newPrice = prompt("Input the price")
         items.splice(editedItems,1,askings)
+        prices.splice(editItems,1,newPrice)
         carts()
 }

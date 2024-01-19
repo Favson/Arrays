@@ -6,6 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/bootstrap-5.3.2-dist/css/bootstrap.css">
 </head>
+<style>
+    th,td{
+        border: 2px solid;
+    }
+</style>
 <body>
     <div class="container-fluid mx-auto col-lg-7 col-10 shadow-sm mt-lg-5 mt-2 p-3">
         <p id="dateshow"></p>
@@ -14,14 +19,35 @@
             id="inpt">
         <button class="w-100 btn btn-outline-danger my-2 btn-sm" onclick="addItems()">Submit</button>
     </div>
-    <div class="container-fluid mx-auto col-lg-7 shadow-sm" id="show">
+    <div class="text-center alert alert-danger form-floating w-50 mx-auto" style=" display:none" id="err">Space cannot be
+        empty
+      </div>
+    <div class="container-fluid mx-auto col-lg-7 my-5 shadow-sm" id="myTable" style="display:none;">
+        <table class="table text-center">
+            <thead>
+              <tr>
+                <th scope="col" class="col-1">S/N</th>
+                <th scope="col" class="col-6">Product/items</th>
+                <!-- <th scope="col">Price</th> -->
+                <th scope="col" class="col-5">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="show">
+
+            </tbody>
+        </table>
     </div>
+    
+        <div class="fs-5 text-center">You have <span id="counting"  class="p-1 ">0</span>items</div>
+
+
+
 
     <div class="text-center container-fluid mx-auto col-lg-7 col-10 shadow-sm mt-lg-5 mt-2 p-3">
-        <button class="btn btn-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button>
-        <button class="btn btn-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button>
-        <button class="btn btn-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button>
-        <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button>
+        <!-- <button class="btn btn-success btn-sm mx-2 my-2" onclick="addItemstoFirst()">Add Item to Beginning</button> -->
+        <!-- <button class="btn btn-primary btn-sm mx-2 my-2" onclick="removeFirstItems()">Delete First Items</button> -->
+        <!-- <button class="btn btn-warning btn-sm mx-2 my-2" onclick="deletelastItems()">Delete Last Items</button> -->
+        <!-- <button class="btn btn-danger btn-sm mx-2 my-2" onclick="deleteAnyItems()">Delete any Items</button> -->
         <button class="btn btn-dark btn-sm mx-2 my-2" onclick="editItems()">Edit Items</button>
         <button class="btn btn-info btn-sm mx-2 my-2" onclick="deleteAllItems()">Delete All Items</button>
     </div>

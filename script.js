@@ -22,10 +22,12 @@ setInterval(updateGMTTime, 1000);
 
 function addItems() {
     if (inpt.value === "" || price.value===""){
-        err.style.display= "block";
         noItems.style.display = 'none';
+        err.style.display= "block";
     }else{
-        err.style.display= "none";
+        setTimeout(()=> {
+            err.style.display="none"
+        }, 5000);
         noItems.style.display = "none";
         myTable.style.display = "block";
         items.push(inpt.value)
@@ -83,7 +85,7 @@ function UpdateValue() {
     modar.style.display=modar.style.display === "none" ? "block" : "none";
     let inpToedit = Number(document.getElementById("inputToDelete").value)
     let inpToReplace =(document.getElementById("inputToReplace").value)
-    if (inpToedit == "" && inpToReplace == ""){
+    if (inpToedit == "" || inpToReplace == ""){
         display.innerHTML ="Input Values"
     }else{
         items.splice(inpToedit-1, 1, inpToReplace)
@@ -115,12 +117,11 @@ function carts(){
         //     </tr>
         // </thead>
         show.innerHTML +=`
-
             <tr style="background-color: grey;">
                 <td style="background-color: lightgray;"><p>${x+1}.</p></td>
                 <td style="background-color: lightgray;"><p>${items[x]}</p></td>
                 <td style="background-color: lightgray;"><p>#${prices[x]}</p></td>
-                <td style="background-color: lightgray;"><button onclick="Delete(${x})" class="btn btn-danger">Delete</button> <button onclick="edit(${x})" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fw-5"></i>
+                <td style="background-color: lightgray;"><button onclick="Delete(${x})" class="btn btn-danger">Delete</button> <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fw-5"></i>
                 </button></td>
             </tr>
         `
@@ -128,17 +129,11 @@ function carts(){
 }
 
 function Delete(index){
-    // noItems.style.display ="block"
-    // myTable.style.display = "none"
+    noItems.style.display ="block"
+    myTable.style.display = "none"
     items.splice(index, 1);
     prices.splice(index,1);
     carts()
 }
 
-function edit(editedItems){
-    var askings= prompt("Input What The new item");
-    var newPrice = prompt("Input the price")
-        items.splice(editedItems,1,askings)
-        prices.splice(editItems,1,newPrice)
-        carts()
-}
+

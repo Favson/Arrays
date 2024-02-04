@@ -11,7 +11,7 @@
 // console.log(cart);
 
 var items = []
-var prices=[]
+// var prices=[]
 function updateGMTTime() {
   const timeDateInNigeria = new Date().toLocaleString('en-NG', {timeZone: 'Africa/Lagos'});  
   dateshow.innerHTML=(timeDateInNigeria);
@@ -24,14 +24,18 @@ function addItems() {
     if (inpt.value === "" || price.value===""){
         noItems.style.display = 'none';
         err.style.display= "block";
-    }else{
         setTimeout(()=> {
             err.style.display="none"
-        }, 5000);
+        }, 3000);
+    }else{
         noItems.style.display = "none";
         myTable.style.display = "block";
-        items.push(inpt.value)
-        prices.push(price.value)
+        var itemObj = {
+            inputtin : inpt.value,
+            prices: price.value
+        }
+        items.push(itemObj)
+        // prices.push(price.value)
         document.getElementById("inpt").value =""
         document.getElementById("price").value=""
         carts()
@@ -108,7 +112,7 @@ function deleteAllItems(){
 function carts(){
     countings.innerHTML= items.length
     show.innerHTML = ""
-    for (x=0; x<items.length && x<prices.length; x++) {
+    for (x=0; x<items.length; x++) {
         // <thead style="background-color:darkgrey">
         //     <tr>
         //         <th scope="col">S/N</th>
@@ -116,24 +120,63 @@ function carts(){
         //         <th scope="col">Actions</th>
         //     </tr>
         // </thead>
+        console.log(items);
         show.innerHTML +=`
             <tr style="background-color: grey;">
                 <td style="background-color: lightgray;"><p>${x+1}.</p></td>
-                <td style="background-color: lightgray;"><p>${items[x]}</p></td>
-                <td style="background-color: lightgray;"><p>#${prices[x]}</p></td>
-                <td style="background-color: lightgray;"><button onclick="Delete(${x})" class="btn btn-danger">Delete</button> <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning"><i class="fa-regular fa-pen-to-square fw-5"></i>
+                <td style="background-color: lightgray;"><p>${items[x].inputtin}</p></td>
+                <td style="background-color: lightgray;"><p>#${items[x].prices}</p></td>
+                <td style="background-color: lightgray;"><button onclick="Delete(${x})" class="btn btn-danger">Delete</button> <button class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#staticBackdrop${x}"><i class="fa-regular fa-pen-to-square fw-5"></i>
                 </button></td>
+                <!-- Modal -->
+                <div class="modal fade " id="staticBackdrop${x}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header text-info">
+                                <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">MAKE CHANGES</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center text-info">
+                                <p>Makesure your inputs are correct</p>
+                                <div class="text-center alert p-1 my-1 alert-danger w-50 mx-auto" style="display:none;" id="err2">Space cannot be empty</div>
+                                <div class="text-center alert p-1 my-1 alert-success w-50 mx-auto" style="display:none;" id="successMsg">Succefully Make Changes</div>
+                                <input type="text" id="firstModalInput${x}" placeholder="Input input new item" class="col-12 my-3 shadow-none" autofocus>
+                                <input type="number" id="secondModalInput${x}" placeholder="input the price of the new item" class="col-12 border-none">
+                            </div>
+                            <div class="modal-footer" id="editDiv">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="editButton(${x})">Understood</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </tr>
         `
     }
 }
 
+
 function Delete(index){
-    noItems.style.display ="block"
-    myTable.style.display = "none"
     items.splice(index, 1);
-    prices.splice(index,1);
     carts()
 }
 
-
+function editButton(x){
+    if ( document.getElementById(`firstModalInput${x}`).value === "" || document.getElementById(`secondModalInput${x}`).value === ''){
+        err2.style.display = 'block'
+        setTimeout(()=>{
+            err2.style.display='none'
+        }, 1000)
+    }else{
+        items[x]["inputtin"] = document.getElementById(`firstModalInput${x}`).value
+        items[x]["prices"] = document.getElementById(`secondModalInput${x}`).value
+      
+        carts()
+        successMsg.style.display= 'block'
+        setTimeout(() => {
+            successMsg.style.display='none'
+        }, 1000);
+        document.getElementById(`firstModalInput${x}`).value = ''
+        document.getElementById(`secondModalInput${x}`).value = ''
+    }
+}

@@ -170,8 +170,8 @@ function editButton(x){
     }else{
         items[x]["inputtin"] = document.getElementById(`firstModalInput${x}`).value
         items[x]["prices"] = document.getElementById(`secondModalInput${x}`).value
-      
         carts()
+        alert("Successfully Updated")
         successMsg.style.display= 'block'
         setTimeout(() => {
             successMsg.style.display='none'
